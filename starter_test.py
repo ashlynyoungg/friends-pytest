@@ -17,7 +17,7 @@ from datetime import date
 from friend import *
 
 
-### unit tests ###
+## unit tests ###
 def test_calculate_current_age():
     """
     GIVEN a user enters the year they were born
@@ -26,9 +26,7 @@ def test_calculate_current_age():
     """
     print("\r")  # carriage return
     print(" -- calculate_current_age unit test")
-    assert (
-        calculate_current_age(2000) == 23
-    )  # STATIC: will change as the years progress
+    assert (calculate_current_age(2000) == 23)  # STATIC: will change as the years progress
 
 
 def test_calculate_current_age():
@@ -37,9 +35,20 @@ def test_calculate_current_age():
     WHEN that year is passed to this function
     THEN the user's age is accurately calculated
     """
-    birth_year = 1995
+    birth_year = 2000
     today = date.today()
     expected_age = today.year - birth_year
     assert (
         calculate_current_age(birth_year) == expected_age
     )  # DYNAMIC: calculates the current year
+
+def test_calculate_future_age():
+    """
+    GIVEN a users current age
+    WHEN that age is passed to this function
+    THEN the user's age is accurately calculated +10
+    """
+    user_age = 20
+    print("\r")  # carriage return
+    print(" -- calculate_future_age unit test")
+    assert calculate_future_age(user_age) == 30 
